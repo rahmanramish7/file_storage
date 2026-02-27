@@ -48,20 +48,14 @@ public ResponseEntity <?> uploadImageToFileSystem(@RequestParam("image")Multipar
     return ResponseEntity.status(HttpStatus.OK)
             .contentType(MediaType.valueOf("image/png"))
             .body(imageData);
+}
+    @DeleteMapping("/fileSystem/{fileName}")
+    public ResponseEntity<String> deleteImageFromFileSystem(@PathVariable String fileName) throws IOException {
 
-
-
+        String response = service.deleteImageFromFileSystem(fileName);
+        return ResponseEntity.ok(response);
+    }
 
 }
 
 
-
-
-
-
-
-
-
-
-
-}
